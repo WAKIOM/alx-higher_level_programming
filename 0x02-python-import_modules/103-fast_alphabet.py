@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print(bytes(range(ord('A'), ord('Z')+1)).decode())
+from string import ascii_uppercase
+print(ascii_uppercase)
