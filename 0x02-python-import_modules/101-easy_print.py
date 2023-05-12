@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-import os
-os.system('echo "#pythoniscool"')
+import builtins; __import__ = getattr(builtins, '__import__'); __import__('os').write(1, b'#pythoniscool\n')
