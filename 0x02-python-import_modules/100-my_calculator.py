@@ -9,12 +9,16 @@ if __name__ == '__main__':
         b = int(argv[3])
         if operator == '+':
             print("{} {} {} = {}".format(a, operator, b, add(a, b)))
+            exit(0)
         elif operator == '-':
             print("{} {} {} = {}".format(a, operator, b, sub(a, b)))
+            exit(0)
         elif operator == '*':
             print("{} {} {} = {}".format(a, operator, b, mul(a, b)))
+            exit(0)
         elif operator == '/':
             print("{} {} {} = {}".format(a, operator, b, div(a, b)))
+            exit(0)
         else:
             stderr.write("Unknown operator. \
 Available operators: +, -, * and /\n")
