@@ -4,7 +4,7 @@ def print_matrix_integer(matrix=[[]]):
     for i in range(r):
         c = len(matrix[i])
         for j in range(c):
-            if j != matrix[-1]:
+            if j != c - 1:
                 print("{:d}".format(matrix[i][j]), end=' ')
             else:
                 print("{:d}".format(matrix[i][j]), end='')
