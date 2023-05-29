@@ -2,9 +2,10 @@
 def safe_print_list(my_list=[], x=0):
     nums = 0
     try:
-        for i in range(x):
-            print(my_list[i], sep="", end="")
-            nums += 1
+        for item in my_list:
+            if nums < x:
+                print(item, end="")
+                nums += 1
     except IndexError:
         pass
     print()
