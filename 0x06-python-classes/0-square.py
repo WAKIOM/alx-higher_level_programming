@@ -2,5 +2,12 @@
 class Square:
     """
     This class is a Square
+
+
+    Attributes:
+        None
+
+    Methods:
+        None
     """
     pass
