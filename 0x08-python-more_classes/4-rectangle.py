@@ -104,7 +104,7 @@ class Rectangle:
         Generate a string representation of the rectangle.
 
         Returns:
-            str: A string containing a visual repr of the rectangle using '#' characters. 
+            str: A string containing a visual repr of the rectangle using '#
             If either width or height is 0, an empty string is returned.
         """
         if self.__height == 0 or self.__width == 0:
