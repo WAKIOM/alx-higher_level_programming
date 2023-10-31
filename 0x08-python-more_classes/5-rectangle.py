@@ -8,7 +8,7 @@ class Rectangle:
         __height (int): The height of the rectangle.
     """
 
-    def __init__(self, width=0, height=0):
+    def __init__(self, width=0, height=0) -> None:
         """
         Initializes a new Rectangle instance.
 
@@ -88,7 +88,7 @@ class Rectangle:
         """
         return 2 * (self.__width + self.__height)
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Generate a string repr of the rectangle.
 
@@ -100,7 +100,7 @@ class Rectangle:
             return ""
         return "\n".join(["#" * self.__width] * self.__height)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """
         Generate a string repr of the object for recreating a new instance.
 
