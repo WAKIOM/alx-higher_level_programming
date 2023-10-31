@@ -59,13 +59,13 @@ class Rectangle:
 
     def perimeter(self):
         """Calculate and return the perimeter of the Rectangle."""
-        if self.__width == 0 or self.__height == 0:
+        if self.__width == 0 and self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
 
     def __str__(self) -> str:
         """Return a string representation of the Rectangle using '#'."""
-        if self.__width == 0 or self.__height == 0:
+        if self.__width == 0 and self.__height == 0:
             return ""
         return "\n".join(["#" * self.__width] * self.__height)
 
