@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" Module contains a class that defines a rectangle """
+
+
 class Rectangle:
     """
     This is the Rectangle class.
@@ -108,10 +111,8 @@ class Rectangle:
             str: A string representation of the object that can be
                 used with eval() to recreate a new instance.
         """
-        return f"Rectangle({self.__width}, {self.__height})"
+        return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
-        """
-        Print a message when an instance of Rectangle is deleted.
-        """
+        """Deletes the rectangle"""
         print("Bye rectangle...")
