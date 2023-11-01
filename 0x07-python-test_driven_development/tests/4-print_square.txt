@@ -30,3 +30,7 @@ Traceback (most recent call last):
   File "/home/codewise/alx/alx-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 29, in print_square
     raise TypeError("size must be an integer")
 TypeError: size must be an integer
+>>> print_square()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: print_square() missing 1 required positional argument: 'size'
