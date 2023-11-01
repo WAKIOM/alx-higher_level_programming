@@ -19,4 +19,7 @@ def add_integer(a, b=98):
         a = int(a)
     if isinstance(b, float):
         b = int(b)
+    if a + b != int(a) + int(b):
+        raise OverflowError("Result exceeds the\
+                            maximum integer representable value")
     return a + b
