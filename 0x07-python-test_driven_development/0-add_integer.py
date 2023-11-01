@@ -2,14 +2,14 @@
 
 """
 This module contains a function that adds two integers
-a: first argument
-b: second argument
 """
 
 
 def add_integer(a, b=98):
     """
     Function adds two integers
+    args: a(int) first argument
+          b(int) second argument. if not provided, default = 98
     """
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
