@@ -19,7 +19,9 @@ class TestMaxInteger(unittest.TestCase):
         """
         self.assertEqual(max_integer([4, 7, 3, 5]), 7)
         self.assertEqual(max_integer([-8, -16, -12]), -8)
-
+        self.assertEqual(max_integer([1, 3, 6, 29]), 29)
+        self.assertEqual(max_integer([14]), 14)
+        self.assertIsNone(max_integer([]))
     def test_values(self):
         """
         Test for the max_integer function with non-list input.
