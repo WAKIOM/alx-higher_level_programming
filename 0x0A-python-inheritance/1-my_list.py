@@ -10,7 +10,9 @@ class MyList(list):
     Has one method
     """
     def __init__(self):
-        """ initialize the object"""
+        """
+        initialize the object
+        """
         super().__init__()
 
     def print_sorted(self):
