@@ -41,4 +41,4 @@ class Rectangle(BaseGeometry):
         str: The string representation in the format
         "[Rectangle] <width>/<height>".
         """
-        return "[Rectangle] {}/{}".format(self.__width, self.__height)
+        return str("[Rectangle] {}/{}".format(self.__width, self.__height)) 
