@@ -9,4 +9,7 @@ def lookup(obj):
     function takes one arg
     returns a list of attributes and objects
     """
-    return f'{dir(obj)}'
+    lookup_list = []
+    for att in dir(obj):
+        lookup_list.append(att)
+    return lookup_list
