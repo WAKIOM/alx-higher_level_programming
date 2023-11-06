@@ -1,0 +1,21 @@
+>>> MyList = __import__('1-my_list').MyList
+>>> mylist = MyList()
+>>> mylist.append(3)
+>>> mylist.append(-1)
+>>> mylist.append(9)
+>>> mylist.print_sorted()
+[-1, 3, 9]
+>>> mylist.append('ten')
+>>> mylist.print_sorted()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/codewise/alx/alx-higher_level_programming/0x0A-python-inheritance/1-my_list.py", line 16, in print_sorted
+    sorted_list = sorted(self)
+TypeError: '<' not supported between instances of 'str' and 'int'
+>>> mylist.append(True)
+>>> mylist.print_sorted()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/codewise/alx/alx-higher_level_programming/0x0A-python-inheritance/1-my_list.py", line 16, in print_sorted
+    sorted_list = sorted(self)
+TypeError: '<' not supported between instances of 'str' and 'int'
