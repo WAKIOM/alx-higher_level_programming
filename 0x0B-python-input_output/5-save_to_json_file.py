@@ -14,6 +14,6 @@ def save_to_json_file(my_obj, filename):
     a  JSON representation
     takes two arguments
     """
-    with open(filename, 'w') as f:
+    with open(filename, 'a') as f:
 
         json.dump(my_obj, f)
