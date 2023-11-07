@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-import json
 
 """
 Module contains a function that returns the JSON
-representation of an object (string)
+representation of an object (string))
+"""
+import json
+
+"""
+json module
 """
 
 
