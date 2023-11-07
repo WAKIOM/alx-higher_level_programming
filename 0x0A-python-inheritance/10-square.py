@@ -22,7 +22,7 @@ class Square(Rectangle):
         super().__init__(size, size)
         self.__size = size
 
-    def are(self):
+    def area(self):
         """
         Returns:
         area of a square
