@@ -4,78 +4,123 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """A class representing a rectangle.
+    """A subclass of class Base.
+
+    Class Rectangle inherits from Base.
+    Private instance attributes, each with its own public getter and setter:
+    __width -> width
+    __height -> height
+    __x -> x
+    __y -> y
 
     Attributes:
-        __width (int): The width of the rectangle.
-        __height (int): The height of the rectangle.
-        __x (int): The x-coordinate of the rectangle's position.
-        __y (int): The y-coordinate of the rectangle's position.
-        id (int): The unique identifier of the rectangle.
-
-    Methods:
-        __init__(self, width, height, x=0, y=0, id=None):
-            Initializes a new instance of the Rectangle class.
-
-        getwidth(self):
-            Gets the width of the rectangle.
-
-        setweight(self, width):
-            Sets the width of the rectangle.
-
-        getheight(self):
-            Gets the height of the rectangle.
-
-        setheight(self, height):
-            Sets the height of the rectangle.
-
-        getx(self):
-            Gets the x-coordinate of the rectangle.
-
-        setx(self, x=0):
-            Sets the x-coordinate of the rectangle.
-
-        gety(self):
-            Gets the y-coordinate of the rectangle.
-
-        sety(self, y=0):
-            Sets the y-coordinate of the rectangle.
+        width (int): The width of the rectangle.
+        height (int): The height of the rectangle.
+        x (int, optional): The x-coordinate of the rectangle's position. Defaults to 0.
+        y (int, optional): The y-coordinate of the rectangle's position. Defaults to 0.
+        id (int, optional): The unique identifier of the rectangle. Defaults to None.
     """
-    def __init__(self, width, height, x=0, y=0, id=None):
-        super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
 
-    def getwidth(self):
-        """Get the width of the rectangle."""
+    def __init__(self, width: int, height: int, x: int = 0, y: int = 0, id: int = None) -> None:
+        """Initialize instances for the Rectangle class.
+
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+            x (int, optional): The x-coordinate of the rectangle's position. Defaults to 0.
+            y (int, optional): The y-coordinate of the rectangle's position. Defaults to 0.
+            id (int, optional): The unique identifier of the rectangle. Defaults to None.
+        """
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
+        super().__init__(id)  # Calling the superclass
+
+    @property
+    def width(self) -> int:
+        """Retrieve the width attribute."""
         return self.__width
 
-    def setweight(self, width):
-        """Set the width of the rectangle."""
-        self.__width = width
+    @width.setter
+    def width(self, num: int) -> None:
+        """Set and validate the width attribute.
 
-    def getheight(self):
-        """Get the height of the rectangle."""
+        Args:
+            num (int): The value to set as the width.
+
+        Raises:
+            TypeError: If num is not an integer.
+            ValueError: If num is less than or equal to 0.
+        """
+        if type(num) is not int:
+            raise TypeError("width must be an integer")
+        if num <= 0:
+            raise ValueError("width must be > 0")
+        self.__width = num
+
+    @property
+    def height(self) -> int:
+        """Retrieve the height attribute."""
         return self.__height
 
-    def setheight(self, height):
-        """Set the height of the rectangle."""
-        self.__height = height
+    @height.setter
+    def height(self, num: int) -> None:
+        """Set and validate the height attribute.
 
-    def getx(self):
-        """Get the x-coordinate of the rectangle."""
+        Args:
+            num (int): The value to set as the height.
+
+        Raises:
+            TypeError: If num is not an integer.
+            ValueError: If num is less than or equal to 0.
+        """
+        if type(num) is not int:
+            raise TypeError("height must be an integer")
+        if num <= 0:
+            raise ValueError("height must be > 0")
+        self.__height = num
+
+    @property
+    def x(self) -> int:
+        """Retrieve the x attribute."""
         return self.__x
 
-    def setx(self, x=0):
-        """Set the x-coordinate of the rectangle."""
-        self.__x = x
+    @x.setter
+    def x(self, num: int) -> None:
+        """Set and validate the x attribute.
 
-    def gety(self):
-        """Get the y-coordinate of the rectangle."""
+        Args:
+            num (int): The value to set as the x coordinate.
+
+        Raises:
+            TypeError: If num is not an integer.
+            ValueError: If num is less than 0.
+        """
+        if type(num) is not int:
+            raise TypeError("x must be an integer")
+        if num < 0:
+            raise ValueError("x must be >= 0")
+        self.__x = num
+
+    @property
+    def y(self) -> int:
+        """Retrieve the y attribute."""
         return self.__y
 
-    def sety(self, y=0):
-        """Set the y-coordinate of the rectangle."""
-        self.__y = y
+    @y.setter
+    def y(self, num: int) -> None:
+        """Set and validate the y attribute.
+
+        Args:
+            num (int): The value to set as the y coordinate.
+
+        Raises:
+            TypeError: If num is not an integer.
+            ValueError: If num is less than 0.
+        """
+        if type(num) is not int:
+            raise TypeError("y must be an integer")
+        if num < 0:
+            raise ValueError("y must be >= 0")
+        self.__y = num
