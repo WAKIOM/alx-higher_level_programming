@@ -8,34 +8,36 @@ class Rectangle(Base):
 
     Class Rectangle inherits from Base.
     Private instance attributes, each with its own public getter and setter:
-    __width -> width
-    __height -> height
-    __x -> x
-    __y -> y
 
     Attributes:
         width (int): The width of the rectangle.
         height (int): The height of the rectangle.
-        x (int, optional): The x-coordinate of the rectangle's position. Defaults to 0.
-        y (int, optional): The y-coordinate of the rectangle's position. Defaults to 0.
-        id (int, optional): The unique identifier of the rectangle. Defaults to None.
+        x (int, optional): The x-coordinate of the
+        rectangle's position. Defaults to 0.
+        y (int, optional): The y-coordinate of the
+        rectangle's position. Defaults to 0.
+        id (int, optional): The unique identifier of
+        the rectangle. Defaults to None.
     """
 
-    def __init__(self, width: int, height: int, x: int = 0, y: int = 0, id: int = None) -> None:
+    def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize instances for the Rectangle class.
 
         Args:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
-            x (int, optional): The x-coordinate of the rectangle's position. Defaults to 0.
-            y (int, optional): The y-coordinate of the rectangle's position. Defaults to 0.
-            id (int, optional): The unique identifier of the rectangle. Defaults to None.
+            x (int, optional): The x-coordinate of the
+            rectangle's position. Defaults to 0.
+            y (int, optional): The y-coordinate of the
+            rectangle's position. Defaults to 0.
+            id (int, optional): The unique identifier
+            of the rectangle. Defaults to None.
         """
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-        super().__init__(id)  # Calling the superclass
 
     @property
     def width(self) -> int:
@@ -124,3 +126,20 @@ class Rectangle(Base):
         if num < 0:
             raise ValueError("y must be >= 0")
         self.__y = num
+
+    def area(self):
+        return self.__width * self.__height
+
+    def display(self):
+        """
+        Display the rectangle by printing '#' characters in a grid.
+
+        This method prints a representation of the rectangle by displaying
+        '#' characters in a grid format.
+        The number of rows and columns is determined by the height and
+        width attributes of the rectangle.
+        """
+        for i in range(self.__height):
+            for j in range(self.__width):
+                print("#", end="")
+            print()
