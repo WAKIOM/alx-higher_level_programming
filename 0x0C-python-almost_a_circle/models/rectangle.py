@@ -128,21 +128,29 @@ class Rectangle(Base):
         self.__y = num
 
     def area(self):
+        """ return the area of the rectangle """
         return self.__width * self.__height
 
     def display(self):
         """
-        Display the rectangle by printing '#' characters in a grid.
+        Display the rectangle by printing '#' chars
 
-        This method prints a representation of the rectangle by displaying
-        '#' characters in a grid format.
-        The number of rows and columns is determined by the height and
-        width attributes of the rectangle.
+        The rectangle is positioned based on the values of `x` and `y`.
+        The width and height of the rect are determined by `width` and `height`
+        attributes.
+
+        The '#' chars represent the filled area of the rectangle.
         """
-        for i in range(self.__height):
-            for j in range(self.__width):
-                print("#", end="")
+        for _ in range(self.__y):
             print()
+        for _ in range(self.__height):
+            string = ""
+            for i in range(self.__width + self.__x):
+                if i >= self.__x:
+                    string += "#"
+                else:
+                    string += " "
+            print(string)
 
     def __str__(self):
         """
