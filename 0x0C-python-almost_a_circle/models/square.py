@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+from models.rectangle import Rectangle
 """Square class that inherits from rect"""
 
 
@@ -80,17 +82,18 @@ class Square(Rectangle):
             None
         """
         if args:
-            if len(args) >= 1:
-                self.id = args[0]
-            if len(args) >= 2:
-                self.size = args[1]
-            if len(args) >= 3:
-                self.x = args[2]
-            if len(args) >= 4:
-                self.y = args[3]
+            attributes = ['id', 'size', 'x', 'y']
+            for i, val in enumerate(args):
+                setattr(self, attributs[i], val)
         else:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            if 'size' in kwargs:
+                self.size = kwargs['id']
+            if 'x' in kwargs:
+                self.x = kwargs['x']
+            if 'y' in kwargs:
+                self.y = kwargs['y']
 
     def to_dictionary(self):
         """returns the dictionary representation of an object"""
