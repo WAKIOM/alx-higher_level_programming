@@ -81,10 +81,16 @@ class Square(Rectangle):
         Returns:
             None
         """
-        if args:
-            attributes = ['id', 'size', 'x', 'y']
-            for i, val in enumerate(args):
-                setattr(self, attributs[i], val)
+        if len(args):
+            for i, j in enumerate(args):
+                if i == 0:
+                    self.id = j
+                if i == 1:
+                    self.size = j
+                if i == 2:
+                    self.x = j
+                if i == 3:
+                    self.y = j
         else:
             if 'id' in kwargs:
                 self.id = kwargs['id']
