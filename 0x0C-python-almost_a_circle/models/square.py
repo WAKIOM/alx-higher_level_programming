@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-from models.rectangle import Rectangle
 """Square class that inherits from rect"""
 
 
@@ -93,3 +91,11 @@ class Square(Rectangle):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """returns the dictionary representation of an object"""
+        dct = {"id": self.id,
+               "x": self.x,
+               "size": self.size,
+               "y": self.y}
+        return dct
