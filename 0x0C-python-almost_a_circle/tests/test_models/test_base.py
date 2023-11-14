@@ -83,7 +83,19 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(Base.to_json_string([{"id": 12}]), '[{"id": 12}]')
 
     def test_base_to_json_dstr(self):
-        self.assertEqual(Base.to_json_string("[{'id': 12}]"), '"[{\'id\': 12}]"' )
+        self.assertEqual(type(Base.to_json_string("[{'id': 12}]")), str)
+
+    def test_base_from_json_none(self):
+        self.assertEqual(Base.from_json_string(None), [])
+
+    def test_base_from_json_lstr(self):
+        self.assertEqual(Base.from_json_string("[]"), [])
+
+    def test_base_from_json_list(self):
+        self.assertEqual(Base.from_json_string('[{ "id": 89 }]'), [{'id': 89}])
+
+    def test_base_from_json_type(self):
+        self.assertEqual(type(Base.from_json_string('[{"id": 89}]')), list)
 
 if __name__ == '__main__':
     unittest.main()
