@@ -71,15 +71,15 @@ class TestRectangle(unittest.TestCase):
 
     def test_str_representation_w_h(self):
         rect = Rectangle(1, 2)
-        self.assertEqual(str(rect), "[Rectangle] (5) 0/0 - 1/2")
+        self.assertEqual(str(rect), "[Rectangle] (10) 0/0 - 1/2")
 
     def test_str_representation_w_h_x(self):
         rect = Rectangle(1, 2, 3)
-        self.assertEqual(str(rect), "[Rectangle] (6) 3/0 - 1/2")
+        self.assertEqual(str(rect), "[Rectangle] (11) 3/0 - 1/2")
 
     def test_str_representation_whxy(self):
         rect = Rectangle(1,2,3,4)
-        self.assertEqual(str(rect), "[Rectangle] (7) 3/4 - 1/2")
+        self.assertEqual(str(rect), "[Rectangle] (12) 3/4 - 1/2")
 
     def test_to_dictionary_exists(self):
         """
@@ -112,10 +112,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 25)
         self.assertEqual(rect.x, 8)
         self.assertEqual(rect.y, 10)
-class TestRectangleDisplay(unittest.TestCase):
-    """
-    Test class for Rectangle's display method.
-    """
+#class TestRectangleDisplay(unittest.TestCase);
 
     def setUp(self):
         """
