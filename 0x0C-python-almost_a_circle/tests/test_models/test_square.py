@@ -64,3 +64,14 @@ class TestSquare_instantiation(unittest.TestCase):
     def test_to_dictionary(self):
         s4 = Square(1, 2, 3, 4)
         self.assertEqual(s4.to_dictionary(), {'id': 4, 'x': 2, 'size': 1, 'y': 3})
+    def test_update(self):
+        s3 = Square(1,2,3,4)
+        s3.update(89)
+        s3.update(89, 1)
+        s3.update(89, 1, 2)
+        s3.update(89, 1, 2, 3)
+        self.assertEqual(s3.id, 89)
+        self.assertEqual(s3.size, 1)
+        self.assertEqual(s3.x, 2)
+        self.assertEqual(s3.y, 3)
+
