@@ -88,6 +88,22 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(4, 3)
         self.assertTrue(hasattr(r, 'to_dictionary'))
 
+    def test_to_dictionary_output(self):
+        r = Rectangle(10, 2, 1, 9, 5)
+        correct = {'x': 1, 'y': 9, 'id': 5, 'height': 2, 'width': 10}
+        self.assertDictEqual(correct, r.to_dictionary())
+
+    def test_to_dictionary_no_object_changes(self):
+        r1 = Rectangle(10, 2, 1, 9, 5)
+        r2 = Rectangle(5, 9, 1, 2, 10)
+        r2.update(**r1.to_dictionary())
+        self.assertNotEqual(r1, r2)
+
+    def test_to_dictionary_arg(self):
+        r = Rectangle(10, 2, 4, 1, 2)
+        with self.assertRaises(TypeError):
+            r.to_dictionary(1)
+
     def test_area_calculation(self):
         """Test calculating the area of Rectangle."""
         rect = Rectangle(width=10, height=20, x=5, y=7, id=1)
