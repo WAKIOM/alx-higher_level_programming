@@ -21,6 +21,14 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(width="invalid", height=20, x=5, y=7, id=1)
 
+    def test_init_with_zero_width(self):
+        with self.assertRaises(ValueError):
+            Rectangle(0, 2)
+
+    def test_init_with_zero_height(self):
+        with self.assertRaises(ValueError):
+            Rectangle(2, 0)
+
     def test_init_with_invalid_height(self):
         """Test initializing Rectangle with invalid height."""
         with self.assertRaises(TypeError):
@@ -63,15 +71,15 @@ class TestRectangle(unittest.TestCase):
 
     def test_str_representation_w_h(self):
         rect = Rectangle(1, 2)
-        self.assertEqual(str(rect), "[Rectangle] (3) 0/0 - 1/2")
+        self.assertEqual(str(rect), "[Rectangle] (5) 0/0 - 1/2")
 
     def test_str_representation_w_h_x(self):
         rect = Rectangle(1, 2, 3)
-        self.assertEqual(str(rect), "[Rectangle] (4) 3/0 - 1/2")
+        self.assertEqual(str(rect), "[Rectangle] (6) 3/0 - 1/2")
 
     def test_str_representation_whxy(self):
         rect = Rectangle(1,2,3,4)
-        self.assertEqual(str(rect), "[Rectangle] (5) 3/4 - 1/2")
+        self.assertEqual(str(rect), "[Rectangle] (7) 3/4 - 1/2")
 
     def test_area_calculation(self):
         """Test calculating the area of Rectangle."""
