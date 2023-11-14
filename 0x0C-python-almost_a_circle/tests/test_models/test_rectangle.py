@@ -61,6 +61,18 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(width=10, height=20, x=5, y=7, id=1)
         self.assertEqual(str(rect), "[Rectangle] (1) 5/7 - 10/20")
 
+    def test_str_representation_w_h(self):
+        rect = Rectangle(1, 2)
+        self.assertEqual(str(rect), "[Rectangle] (3) 0/0 - 1/2")
+
+    def test_str_representation_w_h_x(self):
+        rect = Rectangle(1, 2, 3)
+        self.assertEqual(str(rect), "[Rectangle] (4) 3/0 - 1/2")
+
+    def test_str_representation_whxy(self):
+        rect = Rectangle(1,2,3,4)
+        self.assertEqual(str(rect), "[Rectangle] (5) 3/4 - 1/2")
+
     def test_area_calculation(self):
         """Test calculating the area of Rectangle."""
         rect = Rectangle(width=10, height=20, x=5, y=7, id=1)
@@ -95,6 +107,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 25)
         self.assertEqual(rect.x, 8)
         self.assertEqual(rect.y, 10)
+
 
 if __name__ == '__main__':
     unittest.main()
