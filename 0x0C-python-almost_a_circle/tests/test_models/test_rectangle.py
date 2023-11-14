@@ -81,6 +81,13 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(1,2,3,4)
         self.assertEqual(str(rect), "[Rectangle] (7) 3/4 - 1/2")
 
+    def test_to_dictionary_exists(self):
+        """
+        Test if to_dictionary() method exists in Rectangle class.
+        """
+        r = Rectangle(4, 3)
+        self.assertTrue(hasattr(r, 'to_dictionary'))
+
     def test_area_calculation(self):
         """Test calculating the area of Rectangle."""
         rect = Rectangle(width=10, height=20, x=5, y=7, id=1)
@@ -116,6 +123,13 @@ class TestRectangleDisplay(unittest.TestCase):
         """
         self.saved_stdout = sys.stdout
         sys.stdout = StringIO()
+
+    def test_display_exists(self):
+        """
+        Test if display() method exists.
+        """
+        r = Rectangle(4, 3)
+        self.assertTrue(hasattr(r, 'display'))
 
     def tearDown(self):
         """
