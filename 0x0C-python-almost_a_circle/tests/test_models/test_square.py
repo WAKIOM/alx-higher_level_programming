@@ -17,6 +17,50 @@ class TestSquare_instantiation(unittest.TestCase):
     def test_no_args(self):
         with self.assertRaises(TypeError):
             Square()
+
     def test_string_rep_w(self):
         s = Square(3)
-        self.assertEqual(str(s), "[Square] (16) 0/0 - 3")
+        self.assertEqual(str(s), "[Square] (23) 0/0 - 3")
+
+    def test_string_rep_w_x(self):
+        s1 = Square(1, 2)
+        self.assertEqual(str(s1), "[Square] (24) 2/0 - 1")
+
+    def test_string_rep_w_x_y(self):
+        s2 = Square(1, 2, 3)
+        self.assertEqual(str(s2), "[Square] (25) 2/3 - 1")
+
+    def test_strinf_rep_w_x_y_id(self):
+        s3 = Square(1,2,3,4)
+        self.assertEqual(str(s3), "[Square] (4) 2/3 - 1")
+
+    def test_init_width_string(self):
+        with self.assertRaises(TypeError):
+            Square("1")
+
+    def test_init_x_string(self):
+        with self.assertRaises(TypeError):
+            Square(1, "2")
+
+    def test_init_y_string(self):
+        with self.assertRaises(TypeError):
+            Square(1, 2, "3")
+
+    def test_init_negative_width(self):
+        with self.assertRaises(ValueError):
+            Square(-1)
+    def test_init_negative_x(self):
+        with self.assertRaises(ValueError):
+            Square(1, -2)
+
+    def test_init_negative_y(self):
+        with self.assertRaises(ValueError):
+            Square(1, 2, -3)
+
+    def test_init_zero_width(self):
+        with self.assertRaises(ValueError):
+            Square(0)
+
+    def test_to_dictionary(self):
+        s4 = Square(1, 2, 3, 4)
+        self.assertEqual(s4.to_dictionary(), {'id': 4, 'x': 2, 'size': 1, 'y': 3})
