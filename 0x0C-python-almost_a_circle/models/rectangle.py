@@ -7,17 +7,7 @@ class Rectangle(Base):
     """A subclass of class Base.
 
     Class Rectangle inherits from Base.
-    Private instance attributes, each with its own public getter and setter:
-
-    Attributes:
-        width (int): The width of the rectangle.
-        height (int): The height of the rectangle.
-        x (int, optional): The x-coordinate of the
-        rectangle's position. Defaults to 0.
-        y (int, optional): The y-coordinate of the
-        rectangle's position. Defaults to 0.
-        id (int, optional): The unique identifier of
-        the rectangle. Defaults to None.
+    Private instance attributes, each with its own public getter and setter
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
