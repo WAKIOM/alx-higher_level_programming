@@ -1,6 +1,6 @@
 import unittest
 import sys
-import io
+from io import StringIO
 from models.rectangle import Rectangle
 """ test cases for rectangle class """
 
@@ -86,16 +86,6 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(width=10, height=20, x=5, y=7, id=1)
         self.assertEqual(rect.area(), 200)
 
-    def test_display_method(self):
-        """Test the display method of Rectangle."""
-        rect = Rectangle(width=3, height=2, x=1, y=1, id=1)
-        expected_output = "\n ###\n ###\n"
-        captured_output = io.StringIO()
-        sys.stdout = captured_output
-        rect.display()
-        sys.stdout = sys.__stdout__
-        self.assertEqual(captured_output.getvalue(), expected_output)
-
     def test_update_method_with_args(self):
         """Test the update method of Rectangle with arguments."""
         rect = Rectangle(width=10, height=20, x=5, y=7, id=1)
@@ -115,7 +105,59 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.height, 25)
         self.assertEqual(rect.x, 8)
         self.assertEqual(rect.y, 10)
+class TestRectangleDisplay(unittest.TestCase):
+    """
+    Test class for Rectangle's display method.
+    """
 
+    def setUp(self):
+        """
+        Set up method to redirect stdout for capturing printed output.
+        """
+        self.saved_stdout = sys.stdout
+        sys.stdout = StringIO()
+
+    def tearDown(self):
+        """
+        Tear down method to restore stdout.
+        """
+        sys.stdout = self.saved_stdout
+
+    def test_display_default(self):
+        """
+        Test display without specifying x and y.
+        """
+        r = Rectangle(4, 3)
+        r.display()
+        expected_output = "####\n####\n####\n"
+        self.assertEqual(sys.stdout.getvalue(), expected_output)
+
+    def test_display_with_x(self):
+        """
+        Test display with x specified.
+        """
+        r = Rectangle(4, 3, 2)
+        r.display()
+        expected_output = "  ####\n  ####\n  ####\n"
+        self.assertEqual(sys.stdout.getvalue(), expected_output)
+
+    def test_display_with_y(self):
+        """
+        Test display with y specified.
+        """
+        r = Rectangle(4, 3, 0, 2)
+        r.display()
+        expected_output = "\n\n####\n####\n####\n"
+        self.assertEqual(sys.stdout.getvalue(), expected_output)
+
+    def test_display_with_x_and_y(self):
+        """
+        Test display with both x and y specified.
+        """
+        r = Rectangle(4, 3, 2, 2)
+        r.display()
+        expected_output = "\n\n  ####\n  ####\n  ####\n" 
+        self.assertEqual(sys.stdout.getvalue(), expected_output)
 
 if __name__ == '__main__':
     unittest.main()
